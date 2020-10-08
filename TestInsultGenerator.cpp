@@ -29,20 +29,6 @@ int main() {
 	cout << "A single insult:" << endl;
 	cout << ig.talkToMe() << endl;
 
-	// Check number to generate limits.
-	try {
-		insults = ig.generate(-100);
-	}
-	catch (NumInsultsOutOfBounds& e) {
-		cerr << e.what() << endl;
-	}
-	try {
-		insults = ig.generate(40000);
-	}
-	catch (NumInsultsOutOfBounds& e) {
-		cerr << e.what() << endl;
-	}
-
 	// generate() generates the requested number of unique insults.
 	cout << "\n100 insults, all different:" << endl;
 	insults = ig.generate(100);
@@ -56,12 +42,7 @@ int main() {
 	// supplied.  If the file cannot be written, the method should throw an exception.  Note that the
 	// insults in the file should be in alphabetical order!
 	// Check the number to generate limits first:
-	try {
-		ig.generateAndSave("Nothing.txt", 40000);
-	}
-	catch (NumInsultsOutOfBounds& e) {
-		cerr << e.what() << endl;
-	}
+	
 	cout << "\nSaving 1000 unique insults to a file...";
 	try {
 		ig.generateAndSave("SavedInsults.txt", 1000);
